@@ -6,7 +6,7 @@ bot = Cinch::Bot.new do
   configure do |c|
     c.nick = "nevarbot"
     c.server = "localhost"
-    c.channels = ["#nevargames", "#founders"]
+    c.channels = ["#nevargames", "#founders", "#oocgaming"]
     c.messages_per_second = 500
     c.server_queue_size = 500
   end
@@ -33,6 +33,14 @@ bot = Cinch::Bot.new do
 
   on :channel, /(.*)high(.*)five(.*)/i do |m|
     m.reply "#{m.user.nick}: _o/"
+  end
+
+  on :channel, /(.*)to the(.*)machine(.*)/i do |m|
+    m.reply `cat horse.txt`
+  end
+
+  on :channel, /(.*)oh well(.*)/i do |m|
+    m.reply `cat ohwell.txt`
   end
 
   yesno = [
